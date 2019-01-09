@@ -1,0 +1,20 @@
+
+spring:
+  application:
+    name: apart-eureka-server
+  security:
+    user:
+      name: root
+      password: 203414
+server:
+  port: 8081
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    preferIpAddress: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
